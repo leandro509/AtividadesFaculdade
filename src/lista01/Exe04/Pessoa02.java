@@ -11,18 +11,35 @@ package lista01.Exe04;
  * @author leandro
  */
 public class Pessoa02 {
-   public String nome;
-   public double altura;
-   public double peso;
+   private String nome;
+   private double altura;
+   private double peso;
     
     public double calcularImc() {
         return peso / (altura * altura);
     }
     
-    public void imprime() {
-        System.out.println(this.nome);
-        System.out.println(this.altura);
-        System.out.println(this.peso);
-        System.out.println(calcularImc());
+   
+    public double getAltura() {
+        return altura;
+    }
+    public void setAltura(double altura) {
+        this.altura = altura;
+    }
+    
+    public double getPeso() {
+        return peso;
+    }
+    
+    public void setPeso(double peso){
+        this.peso = peso;
+        }
+    
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+    
+    public String getNome() {
+        return nome;
     }
 }
