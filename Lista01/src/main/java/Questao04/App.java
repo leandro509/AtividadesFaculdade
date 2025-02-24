@@ -3,7 +3,6 @@
  */
 package Questao04;
 
-import Questao03.*;
 import Questao02.*;
 import java.util.Scanner;
 
@@ -16,72 +15,32 @@ public class App {
     public static void main(String[] args) {
 
         Scanner scan = new Scanner(System.in);
-        String nome01;
-        String nome02;
-        String nome03;
+        Pessoa[] pessoas = new Pessoa[3];
         
-        double peso01 = 0;
-        double peso02 = 0;
-        double peso03 = 0;
+       pessoas[0] = new Pessoa();
+       pessoas[1] = new Pessoa();
+       pessoas[2] = new Pessoa();
 
-        double altura01 = 0;
-        double altura02 = 0;
-        double altura03 = 0;
+        for (int i = 0; i < 3; i++) {
+            
+            System.out.println("Digite o nome da pessoa : ");
+            pessoas[i].nome = scan.nextLine();
+            System.out.println("Digite a altura da pessoa : ");
+            pessoas[i].altura = scan.nextDouble();
+            System.out.println("Digite seu peso : ");
+            pessoas[i].peso = scan.nextDouble();
+            scan.nextLine();
 
-        Pessoa pessoa01 = new Pessoa();
-        Pessoa pessoa02 = new Pessoa();
-        Pessoa pessoa03 = new Pessoa();
-
-        System.out.println("Digite seu nome: ");
-        nome01 = scan.next();
-        System.out.println("Digite a sua altura : ");
-        altura01 = scan.nextDouble();
-        System.out.println("Digite seu peso : ");
-        peso01 = scan.nextDouble();
-        pessoa01.nome = nome01;
-        pessoa01.altura = altura01;
-        pessoa01.peso = peso01;
-       
-
-        System.out.println("Digite seu nome: ");
-        nome02 = scan.next();
-        System.out.println("Digite a sua altura : ");
-        altura02 = scan.nextDouble();
-        System.out.println("Digite seu peso : ");
-        peso02 = scan.nextDouble();
-        pessoa02.nome = nome02;
-        pessoa02.altura = altura02;
-        pessoa02.peso = peso02;
-       
-
-        System.out.println("Digite seu nome: ");
-        nome03 = scan.next();
-        System.out.println("Digite a sua altura : ");
-        altura03 = scan.nextDouble();
-        System.out.println("Digite seu peso : ");
-        peso03 = scan.nextDouble();
-        pessoa03.nome = nome03;
-        pessoa03.altura = altura03;
-        pessoa03.peso = peso03;
-       
-        System.out.println("Nome : " + pessoa03.nome);
-        System.out.println("Peso : " + pessoa03.peso);
-        System.out.println("Altura : " + pessoa03.altura);
-        System.out.println("IMC : " + pessoa03.calcularImc());
+        }
         
-        System.out.println("");
+        for(int j = 2; j > -1; j-- ) {
         
-        System.out.println("Nome : " + pessoa02.nome);
-        System.out.println("Peso : " + pessoa02.peso);
-        System.out.println("Altura : " + pessoa02.altura);
-        System.out.println("IMC : " + pessoa02.calcularImc());
+            System.out.println(pessoas[j].nome);
+            System.out.println(pessoas[j].altura);
+            System.out.println(pessoas[j].peso);
+            System.out.println("");
         
-        System.out.println("");
-        
-        System.out.println("Nome : " + pessoa01.nome);
-        System.out.println("Peso : " + pessoa01.peso);
-        System.out.println("Altura : " + pessoa01.altura);
-        System.out.println("IMC : " + pessoa01.calcularImc());
+        }
 
     }
 }

@@ -13,8 +13,8 @@ public class App {
     public static void main(String[] args) {
         Pessoa pessoa = new Pessoa();
         
-        pessoa.altura = 1.80;
-        pessoa.peso = 72;
+        pessoa.altura = 1.75;
+        pessoa.peso = 78;
         
         System.out.println("O imc da pessoa eh : " + pessoa.calcularImc());
     }
