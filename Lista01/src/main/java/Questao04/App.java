@@ -16,13 +16,13 @@ public class App {
 
         Scanner scan = new Scanner(System.in);
         Pessoa[] pessoas = new Pessoa[3];
-        
-       pessoas[0] = new Pessoa();
-       pessoas[1] = new Pessoa();
-       pessoas[2] = new Pessoa();
+
+        pessoas[0] = new Pessoa();
+        pessoas[1] = new Pessoa();
+        pessoas[2] = new Pessoa();
 
         for (int i = 0; i < 3; i++) {
-            
+
             System.out.println("Digite o nome da pessoa : ");
             pessoas[i].nome = scan.nextLine();
             System.out.println("Digite a altura da pessoa : ");
@@ -32,15 +32,16 @@ public class App {
             scan.nextLine();
 
         }
-        
-        for(int j = 2; j > -1; j-- ) {
-        
+
+        for (int j = 2; j > -1; j--) {
+
             System.out.println(pessoas[j].nome);
             System.out.println(pessoas[j].altura);
             System.out.println(pessoas[j].peso);
+            System.out.println(pessoas[j].calcularImc());
             System.out.println("");
-        
-        }
 
+        }
+        scan.close();
     }
 }
