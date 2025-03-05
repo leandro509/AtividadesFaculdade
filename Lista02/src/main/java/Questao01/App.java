@@ -3,9 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Questao01;
-import java.util.HashSet;
+
 import java.util.Scanner;
-import java.util.Set;
+
 /**
  *
  * @author lgonascimento
@@ -26,9 +26,9 @@ public class App {
             pessoa[i] = new Pessoa();
             
             System.out.println("Digite o nome da pessoa " + (i + 1) + " : ");
-            nome = scan.nextLine();
+            nome = scan.next();
             pessoa[i].setNome(nome);
-            scan.nextLine();
+            
             
             System.out.println("Digite o peso da pessoa " + (i + 1) + " : ");
             peso = scan.nextDouble();
@@ -47,7 +47,10 @@ public class App {
             System.out.println("Peso : " + pessoa[j].getPeso());
             System.out.println("Altura : " +  pessoa[j].getAltura());
             System.out.println("IMC : " + pessoa[j].calcularImc());
+            System.out.println("-----------------------------------");
             
         }
+        
+        scan.close();
     }
 }

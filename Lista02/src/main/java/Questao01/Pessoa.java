@@ -59,7 +59,7 @@ public class Pessoa {
 
     public void setNome(String nome) {
 
-        if (nome.isEmpty()) {
+        if (nome == null || nome.trim().isEmpty()) {
 
             throw new IllegalArgumentException("O nome nao pode estar em branco!");
 
