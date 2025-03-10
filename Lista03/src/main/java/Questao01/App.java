@@ -13,7 +13,7 @@ public class App {
         Funcionario funcionario = new Funcionario();
         
         funcionario.setNome("Leandro");
-        funcionario.setSalario(3000);
+        funcionario.setSalario(2000);
         
         
         System.out.println("Funcionario: " + funcionario.getNome());
