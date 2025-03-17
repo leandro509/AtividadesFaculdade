@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package Questao01;
+package Questao02;
 
 /**
  *
@@ -16,18 +16,17 @@ public class Ponto {
     /**
      * Construtor para as coordenadas x e y serem iniciadas como 0.
      */
-     
     public Ponto() {
         this.x = 0;
         this.y = 0;
     }
-    
+
     /**
      * Construtor no qual as coordenadas receberao os parametros x e y
-     * @param x
-     * @param y 
+     *
+     * @param x Eixo x
+     * @param y Eixo y
      */
-
     public Ponto(int x, int y) {
 
         this.x = x;
@@ -61,7 +60,8 @@ public class Ponto {
 
     /**
      * Metodo para verificar em qual quadrante o ponto esta localizado
-     * @return 
+     *
+     * @return o quandrante em qual o ponto esta localizado
      */
     public Quadrante identificarQuadrante() {
 
@@ -92,47 +92,54 @@ public class Ponto {
         return Quadrante.NENHUM;
 
     }
+
     /**
      * Metodo para verificar se esta em cima do eixo x
-     * @return 
+     *
+     * @return
      */
     public boolean estaIncidindoSobreX() {
 
-        if (this.x == 0) {
-
-            return true;
-
-        }
-
-        return false;
+        return y == 0;
 
     }
-    
+
     /**
      * Metodo para verificar se esta em cima do eixo y
+     *
      * @return 
      */
     public boolean estaIncidindoSobreY() {
 
-        if (this.y == 0) {
+        return x == 0;
 
-            return true;
-
-        }
-
-        return false;
     }
 
     /**
      * Metodo para calcular a distancia de um ponto
-     * @param outroPonto
-     * @return 
+     *
+     * @param outroPonto ponto a ser utilizado para medir a distancia
+     * @return o calculo da distancia euclidiana
      */
     public double calcularDistancia(Ponto outroPonto) {
         
-      double d1 = Math.pow(this.x,2) + Math.pow(this.y,2);
-        Math.sqrt(d1);
-        return d1;
+        int distanciaX = outroPonto.getX() - this.getX();
+        int distanciaY = outroPonto.getY() - this.getY();
+        
+        return  Math.sqrt(Math.pow(distanciaX, 2) + Math.pow(distanciaY, 2));
+        
+        
+
+    }
+    /**
+     * Realiza o calculo da distancia entre 2 pontos
+     * @param p1 primeiro ponto a ser utlizado na distancia
+     * @param p2 segundo ponto a ser utilizado na distancia
+     * @return a distancia entre os pontos fornecidos por parametro
+     */
+    public static double calcularDistancia(Ponto p1, Ponto p2) {
+    
+        return p1.calcularDistancia(p2);
     
     }
 }
