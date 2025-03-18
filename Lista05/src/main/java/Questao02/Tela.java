@@ -182,13 +182,13 @@ public class Tela extends javax.swing.JFrame {
         ponto.setY(y);
         
         
-        if(() && (ponto.estaIncidindoSobreX() == true)) {
+        if((ponto.identificarQuadrante() == Quadrante.NENHUM) && (ponto.estaIncidindoSobreX() == true)) {
             
-            jCbSobreEixoX.setSelected(true);
-            
-        }else if(ponto.identificarQuadrante().equals() && (ponto.estaIncidindoSobreY() == true)){
-        
             jCbSobreEixoY.setSelected(true);
+            
+        }else if((ponto.identificarQuadrante() == Quadrante.NENHUM) && (ponto.estaIncidindoSobreY() == true)){
+        
+            jCbSobreEixoX.setSelected(true);
         
         }
         
