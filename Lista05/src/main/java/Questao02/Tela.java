@@ -15,12 +15,12 @@ public class Tela extends javax.swing.JFrame {
      */
     public Tela() {
         initComponents();
-         jCbSobreEixoX.setEnabled(false);
-         jCbSobreEixoY.setEnabled(false);
-         jCb1Quadrante.setEnabled(false);
-         jCb2Quadrante.setEnabled(false);
-         jCb3Quadrante.setEnabled(false);
-         jCb4Quadrante.setEnabled(false);
+        jCbSobreEixoX.setEnabled(false);
+        jCbSobreEixoY.setEnabled(false);
+        jCb1Quadrante.setEnabled(false);
+        jCb2Quadrante.setEnabled(false);
+        jCb3Quadrante.setEnabled(false);
+        jCb4Quadrante.setEnabled(false);
     }
 
     /**
@@ -175,28 +175,83 @@ public class Tela extends javax.swing.JFrame {
         // TODO add your handling code here:
         int x = Integer.parseInt(jTfdValorEixoX.getText());
         int y = Integer.parseInt(jTfdValorEixoY.getText());
-        
+
         Ponto ponto = new Ponto();
-        
+
         ponto.setX(x);
         ponto.setY(y);
-        
-        
-        if((ponto.identificarQuadrante() == Quadrante.NENHUM) && (ponto.estaIncidindoSobreX() == true)) {
-            
+
+        if ((ponto.identificarQuadrante() == Quadrante.NENHUM) && (ponto.estaIncidindoSobreX() == true)) {
+
             jCbSobreEixoY.setSelected(true);
-            
-        }else if((ponto.identificarQuadrante() == Quadrante.NENHUM) && (ponto.estaIncidindoSobreY() == true)){
-        
+            jCbSobreEixoX.setSelected(false);
+            jCb1Quadrante.setSelected(false);
+            jCb2Quadrante.setSelected(false);
+            jCb3Quadrante.setSelected(false);
+            jCb4Quadrante.setSelected(false);
+
+        } else if ((ponto.identificarQuadrante() == Quadrante.NENHUM) && (ponto.estaIncidindoSobreY() == true)) {
+
             jCbSobreEixoX.setSelected(true);
+            jCbSobreEixoY.setSelected(false);
+            jCb1Quadrante.setSelected(false);
+            jCb2Quadrante.setSelected(false);
+            jCb3Quadrante.setSelected(false);
+            jCb4Quadrante.setSelected(false);
+            
+
+        }else if(ponto.identificarQuadrante() == Quadrante.PRIMEIRO){
+            
+            jCbSobreEixoX.setSelected(false);
+            jCbSobreEixoY.setSelected(false);
+            jCb1Quadrante.setSelected(true);
+            jCb2Quadrante.setSelected(false);
+            jCb3Quadrante.setSelected(false);
+            jCb4Quadrante.setSelected(false);
+            
+        }else if(ponto.identificarQuadrante() == Quadrante.SEGUNDO) {
+        
+            jCbSobreEixoX.setSelected(false);
+            jCbSobreEixoY.setSelected(false);
+            jCb1Quadrante.setSelected(false);
+            jCb2Quadrante.setSelected(true);
+            jCb3Quadrante.setSelected(false);
+            jCb4Quadrante.setSelected(false);
+        
+        }else if(ponto.identificarQuadrante() == Quadrante.SEGUNDO) {
+        
+            jCbSobreEixoX.setSelected(false);
+            jCbSobreEixoY.setSelected(false);
+            jCb1Quadrante.setSelected(false);
+            jCb2Quadrante.setSelected(true);
+            jCb3Quadrante.setSelected(false);
+            jCb4Quadrante.setSelected(false);
+        
+        }else if(ponto.identificarQuadrante() == Quadrante.TERCEIRO) {
+        
+            jCbSobreEixoX.setSelected(false);
+            jCbSobreEixoY.setSelected(false);
+            jCb1Quadrante.setSelected(false);
+            jCb2Quadrante.setSelected(false);
+            jCb3Quadrante.setSelected(true);
+            jCb4Quadrante.setSelected(false);
+        
+        }else {
+        
+            jCbSobreEixoX.setSelected(false);
+            jCbSobreEixoY.setSelected(false);
+            jCb1Quadrante.setSelected(false);
+            jCb2Quadrante.setSelected(false);
+            jCb3Quadrante.setSelected(false);
+            jCb4Quadrante.setSelected(true);
         
         }
-        
+
     }//GEN-LAST:event_jBtnAvaliarActionPerformed
 
     private void jCbSobreEixoXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCbSobreEixoXActionPerformed
-            // TODO add your handling code here:
-           
+        // TODO add your handling code here:
+
     }//GEN-LAST:event_jCbSobreEixoXActionPerformed
 
     private void jCb2QuadranteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jCb2QuadranteActionPerformed
@@ -221,13 +276,13 @@ public class Tela extends javax.swing.JFrame {
 
     private void jTfdValorEixoXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTfdValorEixoXActionPerformed
         // TODO add your handling code here:
-      
-        
+
+
     }//GEN-LAST:event_jTfdValorEixoXActionPerformed
 
     private void jTfdValorEixoYActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTfdValorEixoYActionPerformed
         // TODO add your handling code here:
-       
+
     }//GEN-LAST:event_jTfdValorEixoYActionPerformed
 
     /**
