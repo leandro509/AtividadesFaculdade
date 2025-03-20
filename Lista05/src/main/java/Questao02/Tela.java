@@ -183,8 +183,8 @@ public class Tela extends javax.swing.JFrame {
 
         if ((ponto.identificarQuadrante() == Quadrante.NENHUM) && (ponto.estaIncidindoSobreX() == true)) {
 
-            jCbSobreEixoY.setSelected(true);
-            jCbSobreEixoX.setSelected(false);
+            jCbSobreEixoX.setSelected(true);
+            jCbSobreEixoY.setSelected(false);
             jCb1Quadrante.setSelected(false);
             jCb2Quadrante.setSelected(false);
             jCb3Quadrante.setSelected(false);
@@ -192,8 +192,8 @@ public class Tela extends javax.swing.JFrame {
 
         } else if ((ponto.identificarQuadrante() == Quadrante.NENHUM) && (ponto.estaIncidindoSobreY() == true)) {
 
-            jCbSobreEixoX.setSelected(true);
-            jCbSobreEixoY.setSelected(false);
+            jCbSobreEixoY.setSelected(true);
+            jCbSobreEixoX.setSelected(false);
             jCb1Quadrante.setSelected(false);
             jCb2Quadrante.setSelected(false);
             jCb3Quadrante.setSelected(false);
