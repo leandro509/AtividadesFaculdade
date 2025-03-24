@@ -12,10 +12,10 @@ public class Funcionario {
     private String  nome;
     private double salario;
     
-    public static final double IMPOSTO_2 = 0.0075;
-    public static final double IMPOSTO_3 = 0.015;
-    public static final double IMPOSTO_4 = 0.0225;
-    public static final double IMPOSTO_5 = 0.0275;
+    public static final double IMPOSTO_2 = 0.075;
+    public static final double IMPOSTO_3 = 0.15;
+    public static final double IMPOSTO_4 = 0.225;
+    public static final double IMPOSTO_5 = 0.275;
 
     public String getNome() {
         return nome;
@@ -23,6 +23,9 @@ public class Funcionario {
 
     public void setNome(String nome) {
         this.nome = nome;
+        if(nome.isEmpty()) {
+            throw new IllegalArgumentException("O nome nao pode estar em branco");
+        }
     }
 
     public double getSalario() {
@@ -31,11 +34,16 @@ public class Funcionario {
 
     public void setSalario(double salario) {
         this.salario = salario;
+        
+        if(salario <= 0) {
+            throw new IllegalArgumentException("O salario deve ser maior que Zero");
+        }
+        
     }
     
     public Funcionario(String nome, double salario) {
-        this.setNome(nome);
-        this.setSalario(salario);
+        this.nome = nome;
+        this.salario = salario;
     }
     
     public FaixaIrpf identificarFaixaIrpf() {
@@ -66,6 +74,22 @@ public class Funcionario {
     
     
     public double calcularIrpf() {
+        FaixaIrpf isento = identificarFaixaIrpf();
+        
+        switch(isento) {
+            case PRIMEIRA:
+                return 0;
+            case SEGUNDA:
+                return (this.salario - 1903.98) * IMPOSTO_2;
+            case TERCEIRA:
+                return ((2826.65 - 1903.98) * IMPOSTO_2) + ((this.salario - 2826.65) * IMPOSTO_3);
+            case QUARTA:
+                return ((2826.65 - 1903.98) * IMPOSTO_2) + ((3751.05 - 2826.65) * IMPOSTO_3) + ((this.salario - 3751.05) * IMPOSTO_4);
+            case QUINTA:
+                return ((2826.65 - 1903.98) * IMPOSTO_2) + ((3751.05 - 2826.65) * IMPOSTO_3) + ((4664.68 - 3751.05) * IMPOSTO_4) + ((this.salario - 4664.68) * IMPOSTO_5);
+            default:
+                throw new IllegalArgumentException("Valor de salario Invalido");
+        }
         
         
         
