@@ -18,7 +18,7 @@ public class Imovel {
     }
 
     public void setEndereco(String endereco) {
-        if(endereco.isBlank()) {
+        if(endereco.isEmpty()) {
             throw new IllegalArgumentException("O endereco nao pode estar em branco!");
         }
         this.endereco = endereco;
@@ -56,6 +56,18 @@ public class Imovel {
     }
     
     public double calcularIptu() {
+        
+        if(this.area <= 0) {
+            throw new IllegalArgumentException("A area nao pode ser 0 ou negativa!");
+        }
+        
+        if(this.finalidade == null) {
+            throw new IllegalArgumentException("Finalidade nao pode ser nula");
+        }
+        
+        if(this.bairro == null) {
+            throw new IllegalArgumentException("Bairro nao pode ser nulo");
+        }
         
         if(this.finalidade == finalidade.RESIDENCIAL) {
             return ((1 * this.area) * bairro.getCoeficienteIptu());

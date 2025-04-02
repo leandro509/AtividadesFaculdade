@@ -17,7 +17,7 @@ public class Bairro {
     }
 
     public void setNome(String nome) {
-        if(nome.isBlank()) {
+        if(nome.isEmpty()) {
             throw new IllegalArgumentException("O nome do bairro nao pode estar vazio!");
         }
         this.nome = nome;
