@@ -61,6 +61,9 @@ public class Imovel {
     
     public void setBairro(Bairro bairro) {
         this.bairro = bairro;
+        if(this.bairro == null ) {
+            throw new IllegalArgumentException("Bairro nao pode ser nulo");
+        }
     }
     
     public Bairro getBairro() {
@@ -73,19 +76,7 @@ public class Imovel {
         setFinalidade(finalidade);
         setBairro(bairro);
         
-        /*
-        if(this.area <= 0) {
-            throw new IllegalArgumentException("A area nao pode ser 0 ou negativa!");
-        }
-        
-        if(this.finalidade == null) {
-            throw new IllegalArgumentException("Finalidade nao pode ser nula");
-        }
-        
-        if(this.bairro == null) {
-            throw new IllegalArgumentException("Bairro nao pode ser nulo");
-        }
-        */    
+      
             switch(finalidade) {
                 case RESIDENCIAL:
                     return calculoResidencial();

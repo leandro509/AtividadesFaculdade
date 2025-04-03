@@ -28,13 +28,14 @@ public class ImovelTest {
     public void calculoIptuSemArea() {
         Exception ex = assertThrows(IllegalArgumentException.class, () -> {
             Imovel imovel = new Imovel();
+            imovel.setEndereco("Rua 1");
             Bairro bairro = new Bairro();
             bairro.setNome("Centro");
             bairro.setCoeficienteIptu(1);
             imovel.calcularIptu();
 
         });
-        String esperado = "A area nao pode ser 0 ou negativa!";
+        String esperado = "Area nao pode ser menor ou igual a 0!";
         String resultado = ex.getMessage();
         assertEquals(esperado, resultado);
     }
@@ -43,13 +44,14 @@ public class ImovelTest {
     public void testeFinalidadeNula() {
         Exception ex = assertThrows(IllegalArgumentException.class, () -> {
             Imovel imovel = new Imovel();
+            imovel.setEndereco("Rua 1");
             Bairro bairro = new Bairro();
             bairro.setNome("Centro");
             bairro.setCoeficienteIptu(1);
             imovel.setArea(250);
             imovel.calcularIptu();
         });
-        String esperado = "Finalidade nao pode ser nula";
+        String esperado = "Finalidade nao pode ser nula!";
         String resultado = ex.getMessage();
         assertEquals(esperado, resultado);
 
@@ -59,6 +61,7 @@ public class ImovelTest {
     public void testeBairroNulo() {
         Exception ex = assertThrows(IllegalArgumentException.class, () -> {
             Imovel imovel = new Imovel();
+            imovel.setEndereco("Rua 1");
             imovel.setFinalidade(Finalidade.RESIDENCIAL);
             imovel.setArea(400);
             imovel.calcularIptu();
@@ -74,6 +77,7 @@ public class ImovelTest {
     public void calculoImpostoResidencial() {
         Imovel imovel = new Imovel();
         imovel.setFinalidade(Finalidade.RESIDENCIAL);
+        imovel.setEndereco("Rua 1");
         Bairro bairro = new Bairro();
         bairro.setNome("Centro");
         bairro.setCoeficienteIptu(1);
@@ -88,6 +92,7 @@ public class ImovelTest {
     public void calculoImpostoComercialAte100() {
         Imovel imovel = new Imovel();
         imovel.setFinalidade(Finalidade.COMERCIAL);
+        imovel.setEndereco("Rua 1");
         Bairro bairro = new Bairro();
         bairro.setNome("Centro");
         bairro.setCoeficienteIptu(1);
@@ -101,6 +106,7 @@ public class ImovelTest {
     public void calculoImpostoComercialEntre100E400() {
         Imovel imovel = new Imovel();
         imovel.setFinalidade(Finalidade.COMERCIAL);
+        imovel.setEndereco("Rua 1");
         Bairro bairro = new Bairro();
         bairro.setNome("Centro");
         bairro.setCoeficienteIptu(1);
@@ -114,6 +120,7 @@ public class ImovelTest {
     public void calculoImpostoComercialMaior400() {
         Imovel imovel = new Imovel();
         imovel.setFinalidade(Finalidade.COMERCIAL);
+        imovel.setEndereco("Rua 1");
         Bairro bairro = new Bairro();
         bairro.setNome("Centro");
         bairro.setCoeficienteIptu(1);
@@ -127,6 +134,7 @@ public class ImovelTest {
     public void calculoImpostoIndustrialAte2000() {
         Imovel imovel = new Imovel();
         imovel.setFinalidade(Finalidade.INDUSTRIAL);
+        imovel.setEndereco("Rua 1");
         Bairro bairro = new Bairro();
         bairro.setNome("Centro");
         bairro.setCoeficienteIptu(1);
@@ -140,6 +148,7 @@ public class ImovelTest {
     public void calculoImpostoIndustrialMaior2000() {
         Imovel imovel = new Imovel();
         imovel.setFinalidade(Finalidade.INDUSTRIAL);
+        imovel.setEndereco("Rua 1");
         Bairro bairro = new Bairro();
         bairro.setNome("Centro");
         bairro.setCoeficienteIptu(1);
@@ -154,6 +163,7 @@ public class ImovelTest {
     public void calculoImpostoCoeficienteIptuMaior1() {
         Imovel imovel = new Imovel();
         imovel.setFinalidade(Finalidade.RESIDENCIAL);
+        imovel.setEndereco("Rua 1");
         Bairro bairro = new Bairro();
         bairro.setNome("Centro");
         bairro.setCoeficienteIptu(2.5);
