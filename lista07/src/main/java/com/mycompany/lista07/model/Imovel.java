@@ -12,13 +12,25 @@ public class Imovel {
     private int area;
     private Finalidade finalidade;
     private Bairro bairro;
+    
+    public Imovel() {
+        this.endereco = "";
+    }
 
+    public Imovel(String endereco, int area, Finalidade finalidade, Bairro bairro) {
+        this.endereco = endereco;
+        this.area = area;
+        this.finalidade = finalidade;
+        this.bairro = bairro;
+    }
+    
+    
     public String getEndereco() {
         return endereco;
     }
 
     public void setEndereco(String endereco) {
-        if(endereco.isEmpty()) {
+        if(endereco.trim().isEmpty()) {
             throw new IllegalArgumentException("O endereco nao pode estar em branco!");
         }
         this.endereco = endereco;
@@ -56,7 +68,12 @@ public class Imovel {
     }
     
     public double calcularIptu() {
+        setArea(area);
+        setEndereco(endereco);
+        setFinalidade(finalidade);
+        setBairro(bairro);
         
+        /*
         if(this.area <= 0) {
             throw new IllegalArgumentException("A area nao pode ser 0 ou negativa!");
         }
@@ -68,25 +85,41 @@ public class Imovel {
         if(this.bairro == null) {
             throw new IllegalArgumentException("Bairro nao pode ser nulo");
         }
-        
-        if(this.finalidade == finalidade.RESIDENCIAL) {
-            return ((1 * this.area) * bairro.getCoeficienteIptu());
-        }else if(this.finalidade == finalidade.COMERCIAL) {
-            if(this.area <= 100) {
-                return (500 * bairro.getCoeficienteIptu());
-            }else if(this.area > 100 && this.area <= 400) {
-                return (1000 * bairro.getCoeficienteIptu());
-            }else{
-                return ((2.55 * this.area) * bairro.getCoeficienteIptu());
+        */    
+            switch(finalidade) {
+                case RESIDENCIAL:
+                    return calculoResidencial();
+                
+                case COMERCIAL:
+                    return calculoComercial();
             }
-        }else{
-            if(this.area <= 2000) {
-                return (1000 * bairro.getCoeficienteIptu());
-            }else {
-                return ((0.55 * this.area) * bairro.getCoeficienteIptu());
-            }
-        }
+            
+            return calculoIndustrial();
+            
+      
     }
     
+    public double calculoResidencial() {
+        return (this.area * 1) * bairro.getCoeficienteIptu();
+    }
     
+    public double calculoComercial() {
+        if(this.area <= 100 ) {
+            return 500 * bairro.getCoeficienteIptu();
+        }
+        
+        if(this.area > 100 && this.area <= 400) {
+            return 1000 * bairro.getCoeficienteIptu();
+        }
+        
+        return (2.55 * this.area) * bairro.getCoeficienteIptu();
+    }
+    
+    public double calculoIndustrial() {
+        if(this.area <= 2000) {
+            return 1000 * bairro.getCoeficienteIptu();
+        }
+        
+        return (0.55 * this.area) * bairro.getCoeficienteIptu();
+    }
 }

@@ -11,6 +11,8 @@ package com.mycompany.lista07.model;
 public class Bairro {
     private String nome;
     private double coeficienteIptu;
+    
+    
 
     public String getNome() {
         return nome;
