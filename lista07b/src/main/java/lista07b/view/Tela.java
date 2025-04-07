@@ -2,7 +2,12 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package lista07b;
+package lista07b.view;
+
+import lista07b.model.Professor;
+import lista07b.model.Titulacao;
+import lista07b.model.Turma;
+import lista07b.model.Turno;
 
 /**
  *
@@ -27,21 +32,22 @@ public class Tela extends javax.swing.JFrame {
     private void initComponents() {
 
         btnGrTurno = new javax.swing.ButtonGroup();
+        btnGrTitulacao = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jTfdDisciplina = new javax.swing.JTextField();
         jLabel2 = new javax.swing.JLabel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
+        jRdMatutino = new javax.swing.JRadioButton();
+        jRdVespertino = new javax.swing.JRadioButton();
+        jRdNoturno = new javax.swing.JRadioButton();
         jPanel2 = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        jTextField2 = new javax.swing.JTextField();
+        jTfdNome = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jRadioButton5 = new javax.swing.JRadioButton();
-        jRadioButton6 = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        jRdGraduacao = new javax.swing.JRadioButton();
+        jRdMestrado = new javax.swing.JRadioButton();
+        jRdDoutorado = new javax.swing.JRadioButton();
+        jBtnIncluir = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -52,14 +58,14 @@ public class Tela extends javax.swing.JFrame {
 
         jLabel2.setText("Turno:");
 
-        btnGrTurno.add(jRadioButton1);
-        jRadioButton1.setText("Matutino");
+        btnGrTurno.add(jRdMatutino);
+        jRdMatutino.setText("Matutino");
 
-        btnGrTurno.add(jRadioButton2);
-        jRadioButton2.setText("Vespertino");
+        btnGrTurno.add(jRdVespertino);
+        jRdVespertino.setText("Vespertino");
 
-        btnGrTurno.add(jRadioButton3);
-        jRadioButton3.setText("Noturno");
+        btnGrTurno.add(jRdNoturno);
+        jRdNoturno.setText("Noturno");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -71,15 +77,15 @@ public class Tela extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTfdDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jLabel2)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton1)
+                        .addComponent(jRdMatutino)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton2)
+                        .addComponent(jRdVespertino)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton3)))
+                        .addComponent(jRdNoturno)))
                 .addContainerGap(101, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -88,13 +94,13 @@ public class Tela extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTfdDisciplina, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jRadioButton1)
-                    .addComponent(jRadioButton2)
-                    .addComponent(jRadioButton3))
+                    .addComponent(jRdMatutino)
+                    .addComponent(jRdVespertino)
+                    .addComponent(jRdNoturno))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
@@ -104,11 +110,14 @@ public class Tela extends javax.swing.JFrame {
 
         jLabel4.setText("Titulacao:");
 
-        jRadioButton4.setText("Graduacao");
+        btnGrTitulacao.add(jRdGraduacao);
+        jRdGraduacao.setText("Graduacao");
 
-        jRadioButton5.setText("Mestrado");
+        btnGrTitulacao.add(jRdMestrado);
+        jRdMestrado.setText("Mestrado");
 
-        jRadioButton6.setText("Doutorado");
+        btnGrTitulacao.add(jRdDoutorado);
+        jRdDoutorado.setText("Doutorado");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -120,15 +129,15 @@ public class Tela extends javax.swing.JFrame {
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel3)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jTfdNome, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel4)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton4)
+                        .addComponent(jRdGraduacao)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton5)
+                        .addComponent(jRdMestrado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRadioButton6)))
+                        .addComponent(jRdDoutorado)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
@@ -137,17 +146,22 @@ public class Tela extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel3)
-                    .addComponent(jTextField2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jTfdNome, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
-                    .addComponent(jRadioButton4)
-                    .addComponent(jRadioButton5)
-                    .addComponent(jRadioButton6))
+                    .addComponent(jRdGraduacao)
+                    .addComponent(jRdMestrado)
+                    .addComponent(jRdDoutorado))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jButton1.setText("Incluir Aluno");
+        jBtnIncluir.setText("Incluir Aluno");
+        jBtnIncluir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnIncluirActionPerformed(evt);
+            }
+        });
 
         jButton2.setText("Listar dados da turma");
 
@@ -161,7 +175,7 @@ public class Tela extends javax.swing.JFrame {
                     .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jPanel2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jButton1)
+                        .addComponent(jBtnIncluir)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jButton2)
                         .addGap(0, 0, Short.MAX_VALUE)))
@@ -176,13 +190,45 @@ public class Tela extends javax.swing.JFrame {
                 .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
+                    .addComponent(jBtnIncluir)
                     .addComponent(jButton2))
                 .addContainerGap(79, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jBtnIncluirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirActionPerformed
+        // TODO add your handling code here:
+        Turma turma = new Turma();
+        
+        turma.setDisciplina(jTfdDisciplina.getText());
+        
+        
+        if(jRdMatutino.isSelected()) {
+            turma.setTurno(Turno.MATUTINO);
+        }else if(jRdVespertino.isSelected()) {
+            turma.setTurno(Turno.VESPERTINO);
+        }else {
+            turma.setTurno(Turno.NOTURNO);
+        }
+        
+        Professor professor = new Professor();
+        
+        professor.setNome(jTfdNome.getText());
+        
+        if(jRdGraduacao.isSelected()) {
+            professor.setTitulacao(Titulacao.GRADUADO);
+        }else if(jRdMestrado.isSelected()) {
+            professor.setTitulacao(Titulacao.MESTRADO);
+        }else{
+            professor.setTitulacao(Titulacao.DOUTORADO);
+        }
+        
+        TelaAluno tela2 = new TelaAluno(this, true);
+        tela2.setVisible(true);
+        
+    }//GEN-LAST:event_jBtnIncluirActionPerformed
 
     /**
      * @param args the command line arguments
@@ -220,8 +266,9 @@ public class Tela extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.ButtonGroup btnGrTitulacao;
     private javax.swing.ButtonGroup btnGrTurno;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton jBtnIncluir;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -229,13 +276,13 @@ public class Tela extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
-    private javax.swing.JRadioButton jRadioButton5;
-    private javax.swing.JRadioButton jRadioButton6;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextField2;
+    private javax.swing.JRadioButton jRdDoutorado;
+    private javax.swing.JRadioButton jRdGraduacao;
+    private javax.swing.JRadioButton jRdMatutino;
+    private javax.swing.JRadioButton jRdMestrado;
+    private javax.swing.JRadioButton jRdNoturno;
+    private javax.swing.JRadioButton jRdVespertino;
+    private javax.swing.JTextField jTfdDisciplina;
+    private javax.swing.JTextField jTfdNome;
     // End of variables declaration//GEN-END:variables
 }

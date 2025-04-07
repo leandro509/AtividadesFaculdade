@@ -6,21 +6,11 @@ package lista07b.model;
 
 /**
  *
- * @author leandro
+ * @author lgonascimento
  */
-public class Professor {
+public class Aluno {
     private String nome;
-    private Titulacao titulacao;
-
-    public Titulacao getTitulacao() {
-        return titulacao;
-    }
-
-    public void setTitulacao(Titulacao titulacao) {
-        this.titulacao = titulacao;
-    }
-    
-    
+    private int numMatricula;
 
     public String getNome() {
         return nome;
@@ -29,4 +19,14 @@ public class Professor {
     public void setNome(String nome) {
         this.nome = nome;
     }
+
+    public int getNumMatricula() {
+        return numMatricula;
+    }
+
+    public void setNumMatricula(int numMatricula) {
+        this.numMatricula = numMatricula;
+    }
+    
+    
 }
