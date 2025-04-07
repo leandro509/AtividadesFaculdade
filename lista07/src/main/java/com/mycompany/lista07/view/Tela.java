@@ -51,6 +51,8 @@ public class Tela extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
         jLabel2.setText("Endereço:");
 
         jLabel3.setText("Area:");
@@ -65,6 +67,8 @@ public class Tela extends javax.swing.JFrame {
 
         btnGrFinalidade.add(jRbtnIndustrial);
         jRbtnIndustrial.setText("Industrial");
+
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
 
         jLabel5.setText("Bairro");
 
@@ -157,6 +161,8 @@ public class Tela extends javax.swing.JFrame {
 
         jLabel1.setText("Imóvel");
 
+        jPanel3.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+
         jBtnCalcular.setText("Calcular");
         jBtnCalcular.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -208,7 +214,7 @@ public class Tela extends javax.swing.JFrame {
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
