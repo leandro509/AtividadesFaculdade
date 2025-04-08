@@ -12,6 +12,11 @@ public class Professor {
     private String nome;
     private String email;
     private Titulacao titulacao;
+    
+    public Professor(String nome, String email){
+        this.nome = nome;
+        this.email = email;
+    }
 
     public String getNome() {
         return nome;

@@ -187,7 +187,7 @@
                       <Group type="102" alignment="0" attributes="0">
                           <Component id="jLabel5" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Component id="jRdbTitulacao" min="-2" max="-2" attributes="0"/>
+                          <Component id="jRdbGraduacao" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
                           <Component id="jRdbMestrado" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
@@ -213,7 +213,7 @@
                   <EmptySpace type="unrelated" max="-2" attributes="0"/>
                   <Group type="103" groupAlignment="3" attributes="0">
                       <Component id="jLabel5" alignment="3" min="-2" max="-2" attributes="0"/>
-                      <Component id="jRdbTitulacao" alignment="3" min="-2" max="-2" attributes="0"/>
+                      <Component id="jRdbGraduacao" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jRdbMestrado" alignment="3" min="-2" max="-2" attributes="0"/>
                       <Component id="jRdbDoutorado" alignment="3" min="-2" max="-2" attributes="0"/>
                   </Group>
@@ -241,7 +241,7 @@
             <Property name="text" type="java.lang.String" value="Titula&#xe7;&#xe3;o:"/>
           </Properties>
         </Component>
-        <Component class="javax.swing.JRadioButton" name="jRdbTitulacao">
+        <Component class="javax.swing.JRadioButton" name="jRdbGraduacao">
           <Properties>
             <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
               <ComponentRef name="btnGrTitulacao"/>
@@ -274,6 +274,9 @@
       <Properties>
         <Property name="text" type="java.lang.String" value="Incluir Aluno"/>
       </Properties>
+      <Events>
+        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="jBtnIncluirAlunoActionPerformed"/>
+      </Events>
     </Component>
     <Component class="javax.swing.JButton" name="jBtnListarDados">
       <Properties>

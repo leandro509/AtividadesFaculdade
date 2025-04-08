@@ -12,6 +12,12 @@ public class Aluno {
     private int matricula;
     private String nome;
     private double notaEnem;
+    
+    public Aluno(String nome, int matricula, double nota) {
+        this.matricula = matricula;
+        this.nome = nome;
+        this.notaEnem = nota;
+    }
 
     public int getMatricula() {
         return matricula;

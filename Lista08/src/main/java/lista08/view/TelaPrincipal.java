@@ -4,6 +4,11 @@
  */
 package lista08.view;
 
+import lista08.model.Professor;
+import lista08.model.Titulacao;
+import lista08.model.Turma;
+import lista08.model.Turno;
+
 /**
  *
  * @author leandro
@@ -41,7 +46,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
         jTfdNome = new javax.swing.JTextField();
         jTfdEmail = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
-        jRdbTitulacao = new javax.swing.JRadioButton();
+        jRdbGraduacao = new javax.swing.JRadioButton();
         jRdbMestrado = new javax.swing.JRadioButton();
         jRdbDoutorado = new javax.swing.JRadioButton();
         jBtnIncluirAluno = new javax.swing.JButton();
@@ -49,7 +54,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Turma"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
 
         jLabel1.setText("Disciplina:");
 
@@ -97,7 +102,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(jRdbNoturno)))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Professor"));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
 
         jLabel3.setText("Nome:");
 
@@ -105,8 +110,8 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         jLabel5.setText("Titulação:");
 
-        btnGrTitulacao.add(jRdbTitulacao);
-        jRdbTitulacao.setText("Graduação");
+        btnGrTitulacao.add(jRdbGraduacao);
+        jRdbGraduacao.setText("Graduação");
 
         btnGrTitulacao.add(jRdbMestrado);
         jRdbMestrado.setText("Mestrado");
@@ -138,7 +143,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, jPanel2Layout.createSequentialGroup()
                         .addComponent(jLabel5)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jRdbTitulacao)
+                        .addComponent(jRdbGraduacao)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(jRdbMestrado)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -158,12 +163,17 @@ public class TelaPrincipal extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel5)
-                    .addComponent(jRdbTitulacao)
+                    .addComponent(jRdbGraduacao)
                     .addComponent(jRdbMestrado)
                     .addComponent(jRdbDoutorado)))
         );
 
         jBtnIncluirAluno.setText("Incluir Aluno");
+        jBtnIncluirAluno.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnIncluirAlunoActionPerformed(evt);
+            }
+        });
 
         jBtnListarDados.setText("Listar Dados da Turma");
 
@@ -206,6 +216,36 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private void jRdbDoutoradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRdbDoutoradoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRdbDoutoradoActionPerformed
+
+    private void jBtnIncluirAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirAlunoActionPerformed
+        // TODO add your handling code here:
+        Turma turma = new Turma();
+        turma.setDisciplina(jTfdDisciplina.getText());
+        
+        if(jRdbNoturno.isSelected()) {
+            turma.setTurno(Turno.NOTURNO);
+        }else if(jRdbMatutino.isSelected()) {
+            turma.setTurno(Turno.MATUTINO);
+        }else{
+            turma.setTurno(Turno.VESPERTINO);
+        }
+        
+        Professor professor = new Professor(jTfdNome.getText(), jTfdEmail.getText());
+        
+        if(jRdbGraduacao.isSelected()) {
+            professor.setTitulacao(Titulacao.GRADUACAO);
+        }else if(jRdbMestrado.isSelected()) {
+            professor.setTitulacao(Titulacao.MESTRADO);
+        }else{
+            professor.setTitulacao(Titulacao.DOUTORADO);
+        }
+        
+        turma.setProfessor(professor);
+        
+        
+        TelaAluno tela2 = new TelaAluno(this, true);
+        tela2.setVisible(true);
+    }//GEN-LAST:event_jBtnIncluirAlunoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -255,10 +295,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JRadioButton jRdbDoutorado;
+    private javax.swing.JRadioButton jRdbGraduacao;
     private javax.swing.JRadioButton jRdbMatutino;
     private javax.swing.JRadioButton jRdbMestrado;
     private javax.swing.JRadioButton jRdbNoturno;
-    private javax.swing.JRadioButton jRdbTitulacao;
     private javax.swing.JRadioButton jRdbVespertino;
     private javax.swing.JTextField jTfdDisciplina;
     private javax.swing.JTextField jTfdEmail;
