@@ -4,6 +4,7 @@
  */
 package lista08.view;
 
+import javax.swing.JDialog;
 import lista08.model.Aluno;
 import lista08.model.Turma;
 
@@ -12,7 +13,7 @@ import lista08.model.Turma;
  * @author leandro
  */
 public class TelaAluno extends javax.swing.JDialog {
-
+    Aluno aluno;
     /**
      * Creates new form TelaAluno
      */
@@ -133,9 +134,11 @@ public class TelaAluno extends javax.swing.JDialog {
         int matricula = Integer.parseInt(jTfdNumeroMtr.getText());
         double nota = Double.parseDouble(jTfdNota.getText());
         
-        Aluno aluno = new Aluno(jTfdNomeAluno.getText(), matricula, nota);
+        aluno = new Aluno(jTfdNomeAluno.getText(), matricula, nota);
         
+        //turma.incluirAluno(aluno);
         
+        this.setVisible(false);
         
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
 
@@ -178,6 +181,8 @@ public class TelaAluno extends javax.swing.JDialog {
                 });
                 dialog.setVisible(true);
             }
+            
+           
         });
     }
 

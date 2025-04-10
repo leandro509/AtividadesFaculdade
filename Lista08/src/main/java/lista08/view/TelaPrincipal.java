@@ -54,7 +54,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Turma"));
 
         jLabel1.setText("Disciplina:");
 
@@ -102,7 +102,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
                     .addComponent(jRdbNoturno)))
         );
 
-        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder(null));
+        jPanel2.setBorder(javax.swing.BorderFactory.createTitledBorder("Professor"));
 
         jLabel3.setText("Nome:");
 
