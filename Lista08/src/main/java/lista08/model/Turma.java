@@ -14,9 +14,9 @@ import java.util.ArrayList;
 public class Turma {
     private String disciplina;
     private Turno turno;
-    private ArrayList<Aluno> alunos;
+    private final ArrayList<Aluno> alunos = new ArrayList<>();
     private Professor professor;
-
+    
     public String getDisciplina() {
         return disciplina;
     }

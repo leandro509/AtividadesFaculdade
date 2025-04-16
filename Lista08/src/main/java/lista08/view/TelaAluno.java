@@ -4,7 +4,9 @@
  */
 package lista08.view;
 
+import java.util.ArrayList;
 import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 import lista08.model.Aluno;
 import lista08.model.Turma;
 
@@ -13,7 +15,8 @@ import lista08.model.Turma;
  * @author leandro
  */
 public class TelaAluno extends javax.swing.JDialog {
-    Aluno aluno;
+    public Aluno aluno;
+    
     /**
      * Creates new form TelaAluno
      */
@@ -59,6 +62,11 @@ public class TelaAluno extends javax.swing.JDialog {
         });
 
         jBtnCancelar.setText("Cancelar");
+        jBtnCancelar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnCancelarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -131,16 +139,26 @@ public class TelaAluno extends javax.swing.JDialog {
 
     private void jBtnConfirmarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnConfirmarActionPerformed
         // TODO add your handling code here:
+        
+        
+        if(!jTfdNumeroMtr.getText().trim().isEmpty() && !jTfdNota.getText().trim().isEmpty() && !jTfdNomeAluno.getText().trim().isEmpty()) {
         int matricula = Integer.parseInt(jTfdNumeroMtr.getText());
         double nota = Double.parseDouble(jTfdNota.getText());
-        
         aluno = new Aluno(jTfdNomeAluno.getText(), matricula, nota);
+            dispose();
+            
+        }else {
+            JOptionPane.showMessageDialog(this, "Por favor, preencha todos os campos.");
+        }
         
-        //turma.incluirAluno(aluno);
         
-        this.setVisible(false);
+        
         
     }//GEN-LAST:event_jBtnConfirmarActionPerformed
+
+    private void jBtnCancelarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnCancelarActionPerformed
+        dispose();
+    }//GEN-LAST:event_jBtnCancelarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -197,4 +215,8 @@ public class TelaAluno extends javax.swing.JDialog {
     private javax.swing.JTextField jTfdNota;
     private javax.swing.JTextField jTfdNumeroMtr;
     // End of variables declaration//GEN-END:variables
+
+    Aluno getAluno() {
+        return aluno;
+    }
 }

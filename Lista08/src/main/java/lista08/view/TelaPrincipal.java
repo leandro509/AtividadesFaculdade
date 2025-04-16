@@ -4,24 +4,30 @@
  */
 package lista08.view;
 
+import java.util.ArrayList;
+import lista08.model.Aluno;
 import lista08.model.Professor;
 import lista08.model.Titulacao;
 import lista08.model.Turma;
 import lista08.model.Turno;
+
 
 /**
  *
  * @author leandro
  */
 public class TelaPrincipal extends javax.swing.JFrame {
-
+    protected Turma turma;
+    protected Aluno aluno;
+    protected Professor professor;
     /**
      * Creates new form TelaPrincipal
      */
     public TelaPrincipal() {
         initComponents();
     }
-
+    
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -176,6 +182,11 @@ public class TelaPrincipal extends javax.swing.JFrame {
         });
 
         jBtnListarDados.setText("Listar Dados da Turma");
+        jBtnListarDados.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jBtnListarDadosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -219,7 +230,9 @@ public class TelaPrincipal extends javax.swing.JFrame {
 
     private void jBtnIncluirAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirAlunoActionPerformed
         // TODO add your handling code here:
-        Turma turma = new Turma();
+         turma = new Turma();
+        //ArrayList<Aluno> alunos = new ArrayList<>();
+        
         turma.setDisciplina(jTfdDisciplina.getText());
         
         if(jRdbNoturno.isSelected()) {
@@ -230,7 +243,7 @@ public class TelaPrincipal extends javax.swing.JFrame {
             turma.setTurno(Turno.VESPERTINO);
         }
         
-        Professor professor = new Professor(jTfdNome.getText(), jTfdEmail.getText());
+         professor = new Professor(jTfdNome.getText(), jTfdEmail.getText());
         
         if(jRdbGraduacao.isSelected()) {
             professor.setTitulacao(Titulacao.GRADUACAO);
@@ -242,10 +255,30 @@ public class TelaPrincipal extends javax.swing.JFrame {
         
         turma.setProfessor(professor);
         
+        TelaAluno tela1 = new TelaAluno(this, true);
         
-        TelaAluno tela2 = new TelaAluno(this, true);
-        tela2.setVisible(true);
+        tela1.setVisible(true);
+        turma.incluirAluno(tela1.getAluno());
     }//GEN-LAST:event_jBtnIncluirAlunoActionPerformed
+
+    private void jBtnListarDadosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnListarDadosActionPerformed
+        // TODO add your handling code here:
+        TelaRelatorio tela2 = new TelaRelatorio(this, true);
+        if(turma == null) {
+            System.out.println("Turma esta null!");
+        }
+       
+        tela2.setText("Turno : " + turma.getTurno().toString());
+        tela2.setText("-----------------------------");
+        tela2.setText("Professor: " + turma.getProfessor());
+        tela2.setText("Titulacao: " + turma.getProfessor().getTitulacao().toString());
+        tela2.setText("-----------------------------");
+        tela2.setText("Total de alunos: " + turma.getAlunos().size());
+        turma.getAlunos().forEach((estudante) -> tela2.setText(estudante + "\n"));
+        tela2.setText("Aluno(a) com a melhor nota: " + turma.obterMelhorNotaEnem());
+        
+        tela2.setVisible(true);
+    }//GEN-LAST:event_jBtnListarDadosActionPerformed
 
     /**
      * @param args the command line arguments
