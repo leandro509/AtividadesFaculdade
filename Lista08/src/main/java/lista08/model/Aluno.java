@@ -42,11 +42,14 @@ public class Aluno {
     public void setNotaEnem(double notaEnem) {
         this.notaEnem = notaEnem;
     }
+<<<<<<< HEAD
 
     @Override
     public String toString() {
         return "Nome: " + nome + " - Matricula: " + matricula + " - Nota Enem: " + notaEnem;
     }
+=======
+>>>>>>> e5da6513f3e111f0b2238aaba04c5281a54dd422
     
     
 }

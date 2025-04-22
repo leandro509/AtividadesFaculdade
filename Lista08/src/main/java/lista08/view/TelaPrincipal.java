@@ -25,7 +25,10 @@ public class TelaPrincipal extends javax.swing.JFrame {
      */
     public TelaPrincipal() {
         initComponents();
+<<<<<<< HEAD
         turma = new Turma();
+=======
+>>>>>>> e5da6513f3e111f0b2238aaba04c5281a54dd422
     }
     
     
@@ -225,13 +228,20 @@ public class TelaPrincipal extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+<<<<<<< HEAD
          
+=======
+>>>>>>> e5da6513f3e111f0b2238aaba04c5281a54dd422
     private void jRdbDoutoradoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jRdbDoutoradoActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jRdbDoutoradoActionPerformed
 
     private void jBtnIncluirAlunoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jBtnIncluirAlunoActionPerformed
         // TODO add your handling code here:
+<<<<<<< HEAD
+=======
+         turma = new Turma();
+>>>>>>> e5da6513f3e111f0b2238aaba04c5281a54dd422
         //ArrayList<Aluno> alunos = new ArrayList<>();
         
         turma.setDisciplina(jTfdDisciplina.getText());
@@ -271,12 +281,21 @@ public class TelaPrincipal extends javax.swing.JFrame {
        
         tela2.setText("Turno : " + turma.getTurno().toString());
         tela2.setText("-----------------------------");
+<<<<<<< HEAD
         tela2.setText("Professor: " + turma.getProfessor().getNome());
         tela2.setText("Titulacao: " + turma.getProfessor().getTitulacao().toString());
         tela2.setText("-----------------------------");
         tela2.setText("Total de alunos: " + turma.getAlunos().size());
         turma.getAlunos().forEach((estudante) -> tela2.setText(estudante.toString() + "\n"));
         tela2.setText("Aluno(a) com a melhor nota: " + turma.obterMelhorNotaEnem().toString());
+=======
+        tela2.setText("Professor: " + turma.getProfessor());
+        tela2.setText("Titulacao: " + turma.getProfessor().getTitulacao().toString());
+        tela2.setText("-----------------------------");
+        tela2.setText("Total de alunos: " + turma.getAlunos().size());
+        turma.getAlunos().forEach((estudante) -> tela2.setText(estudante + "\n"));
+        tela2.setText("Aluno(a) com a melhor nota: " + turma.obterMelhorNotaEnem());
+>>>>>>> e5da6513f3e111f0b2238aaba04c5281a54dd422
         
         tela2.setVisible(true);
     }//GEN-LAST:event_jBtnListarDadosActionPerformed
