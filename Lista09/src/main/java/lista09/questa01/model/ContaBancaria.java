@@ -35,7 +35,7 @@ public class ContaBancaria {
     }
 
     protected void setSaldo(double saldo) {
-        if(saldo < 0) {
+        if(saldo < 0 && (ContaEspecial.class.isAssignableFrom(ContaBancaria.class))) {
             throw new IllegalArgumentException("Saldo nao pode ser negativo!");
         }
         this.saldo = saldo;
