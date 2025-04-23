@@ -28,13 +28,18 @@ public class ContaEspecial extends ContaBancaria {
     
     @Override
     public void sacar(double valor){
+         if (valor <= 0) {
+        throw new IllegalArgumentException("Valor indisponível para saque!");
+        }
+        
         double saldoAtual = super.getSaldo();
-        
-        
-        if(valor > getSaldo() && valor <= limiteCredito) {
-            setSaldo(saldoAtual -= valor);
-            setLimiteCredito(this.limiteCredito -= valor);
-        }else if(valor <= 0) {
+        if(valor <= saldoAtual) {
+            setSaldo(saldoAtual - valor);
+        }else if(valor <=  (saldoAtual + limiteCredito)) {
+            double restante = valor - saldoAtual;
+            setSaldo(0);
+            setLimiteCredito(this.limiteCredito -= restante);
+        }else {
         throw new IllegalArgumentException("Valor indisponivel para saque!");
         }
     }

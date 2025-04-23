@@ -4,7 +4,6 @@
  */
 package lista09.questa01.model;
 
-import java.util.Set;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -41,6 +40,24 @@ public class ContaEspecialTest {
         assertEquals(esperado, conta01.getSaldo(), limite);
         
     } 
+    
+    @Test
+    public void saqueSuperiorSaldoLimite() {
+        ContaEspecial conta01 = new ContaEspecial("1001", 0);
+        conta01.setLimiteCredito(100);
+        conta01.depositar(20);
+        
+        
+        String esperado = "Valor indisponivel para saque!";
+        
+        Exception exception = assertThrows(IllegalArgumentException.class, () -> {
+            
+        conta01.sacar(120.01);
+        
+        });
+        
+        assertEquals(esperado, exception.getMessage());
+    }
     
     
     
