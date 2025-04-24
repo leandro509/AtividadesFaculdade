@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package lista09.questa01.model;
+package lista09.questao03.model;
+
+import java.util.ArrayList;
 
 /**
  *
@@ -12,6 +14,17 @@ public class ContaBancaria {
     private String numero;
     private double saldo;
     private Cliente titular;
+    private ArrayList<Movimento> movimentos = new ArrayList<>();
+
+    public ArrayList<Movimento> getMovimentos() {
+        return movimentos;
+    }
+
+    protected void incluirMovimento(Movimento m){
+        movimentos.add(m);
+    }
+  
+    
 
     public ContaBancaria(String numero, double saldo) {
         setNumero(numero);
@@ -35,16 +48,18 @@ public class ContaBancaria {
     }
 
     protected void setSaldo(double saldo) {
-        if(saldo < 0 && (ContaEspecial.class.isAssignableFrom(lista09.questao03.model.ContaBancaria.class))) {
+        if(saldo < 0 ) {
             throw new IllegalArgumentException("Saldo nao pode ser negativo!");
         }
         this.saldo = saldo;
     }
     
     public void depositar(double valor) {
+        // Movimento movimento = new Movimento();
         if(valor <= 0) {
             throw new IllegalArgumentException("O valor nao pode ser 0 ou negativo!");
         }
+        
         setSaldo(saldo += valor);
     }
     
@@ -63,7 +78,7 @@ public class ContaBancaria {
         this.titular = titular;
     }
     
-    public void transferir(lista09.questao03.model.ContaBancaria contaDestino, double valor) {
-        
+    public void transferir(ContaBancaria contaDestino, double valor) {
+        contaDestino.depositar(valor);
     }
 }

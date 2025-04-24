@@ -4,6 +4,8 @@
  */
 package lista09.questa01.model;
 
+import lista09.questao03.model.ContaBancaria;
+
 /**
  *
  * @author kleut
