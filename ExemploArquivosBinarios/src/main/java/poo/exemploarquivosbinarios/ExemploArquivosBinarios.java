@@ -4,11 +4,16 @@
 
 package poo.exemploarquivosbinarios;
 
+import java.io.DataInputStream;
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -21,7 +26,7 @@ import java.util.logging.Logger;
 
 public class ExemploArquivosBinarios {
 
-    public static void main(String[] args) throws IOException {
+        /*
        File arquivo = new File("Teste.data");
        try{
            arquivo.createNewFile();
@@ -48,5 +53,56 @@ public class ExemploArquivosBinarios {
        }catch(FileNotFoundException ex) {
            Logger.getLogger(ExemploArquivosBinarios.class.getName());
        }
+    
+         public static void main(String[] args) {
+        File arquivo = new File("dados-primitivos.dat");
+        try{
+            arquivo.createNewFile();
+            FileOutputStream fos =  new FileOutputStream(arquivo);
+            DataOutputStream dos = new DataOutputStream(fos);
+            dos.writeDouble(3.14);
+            dos.writeUTF("Furb");
+            dos.close();
+        }catch(IOException ex){
+             Logger.getLogger(ExemploArquivosBinarios.class.getName()).log(Level);
+        }
+        
+        try{
+           FileInputStream fis = new FileInputStream(arquivo);
+           DataInputStream dis = new DataInputStream(fis);
+            System.out.println(dis.readDouble());
+            System.out.println(dis.readUTF());
+        }catch(FileNotFoundException ex) {
+             Logger.getLogger(ExemploArquivosBinarios.class.getName());
+        }
+        */
+           
+    //}
+        
+        public static void main(String[] args) {
+        File arquivo = new File("objetos-data");
+        Pessoa p = new Pessoa("Adelaide", 65);
+        
+        try{
+            arquivo.createNewFile();
+            FileOutputStream fos = new FileOutputStream(arquivo);
+            ObjectOutputStream ocs = new ObjectOutputStream(fos);
+            ocs.writeObject(p);
+        }catch(IOException ex) {
+            ex.printStackTrace();
+        }
+        
+        FileInputStream fis;
+        
+        /*
+        try{
+            fis = new FileInputStream (arquivo);
+            ObjectInputStream ois = new ObjectInputStream(fis);
+            Pessoa p = (Pessoa) ois.readObject();
+            System.out.println("Nome : " + p.getNome());
+            
+        }
+        */
     }
+    
 }
