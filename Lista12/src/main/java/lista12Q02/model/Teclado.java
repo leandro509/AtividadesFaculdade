@@ -25,7 +25,7 @@ public class Teclado {
         while (ehInt == false) {
             lerInt = scanner.nextLine();
             try {
-                Integer.parseInt(lerInt);
+                Integer.valueOf(lerInt);
                 ehInt = true;
             } catch (NumberFormatException ex) {
                 System.out.println("Nao eh um inteiro!");
@@ -43,7 +43,7 @@ public class Teclado {
         while (ehDouble == false) {
             lerDouble = scanner.nextLine();
             try {
-                Double.parseDouble(lerDouble);
+                Double.valueOf(lerDouble);
                 ehDouble = true;
             } catch (NumberFormatException ex) {
                 System.out.println("Nao eh um numero real");
@@ -73,19 +73,13 @@ public class Teclado {
         
         switch(respostaUsuario){
             case "sim":
-                return true;
             case "verdadeiro":
-                return true;
             case "positivo":
-                return true;
             case "s":
                 return true;
             case "nao":
-                return false;
             case "falso":
-                return false;
             case "negativo":
-                return false;
             case "n":
                 return false;
             default:
