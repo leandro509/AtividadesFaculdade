@@ -55,8 +55,7 @@ public class Aluno {
     @Override
     public int hashCode() {
         int hash = 7;
-        hash = 11 * hash + this.idade;
-        hash = 11 * hash + Objects.hashCode(this.nome);
+        hash = 11 * hash + this.matricula;
         return hash;
     }
 
@@ -74,6 +73,10 @@ public class Aluno {
         final Aluno other = (Aluno) obj;
         return this.matricula == other.matricula;
     }
+    
+    
+    
+ 
     
     
     

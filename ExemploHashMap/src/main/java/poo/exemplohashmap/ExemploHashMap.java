@@ -37,5 +37,14 @@ public class ExemploHashMap {
         System.out.println("Buscando maca");
         System.out.println(vegetais.get("maca"));
         
+        Aluno a2 = new Aluno(22, "Taylor", 5542);
+        Aluno a3 = new Aluno(22, "Taylor", 8878);
+        
+        System.out.println(a2.equals(a3));
+        
+        
+        System.out.println("Hash a2 :" + a2.hashCode());
+        System.out.println("Hash a3 :" + a3.hashCode());
+        
     }
 }
