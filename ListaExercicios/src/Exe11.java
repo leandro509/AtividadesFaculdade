@@ -14,6 +14,7 @@ public class Exe11 {
         System.out.println("Digite a nota 4");
         double nota4 = scan.nextDouble();
         double media = (nota1 + nota2 + nota3 + nota4) / 4;
+
         if(media >= 7) {
             System.out.println("O aluno " + nomeAluno + " foi aprovado com a media - " + media);
         } else{

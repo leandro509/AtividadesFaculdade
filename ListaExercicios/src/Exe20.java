@@ -1,5 +1,5 @@
 import java.util.Scanner;
-public class Exe19 {
+public class Exe20 {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
         System.out.println("Digite o numero de uma tabuada ");
