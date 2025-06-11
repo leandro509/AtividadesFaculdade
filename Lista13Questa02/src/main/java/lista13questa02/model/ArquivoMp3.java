@@ -20,16 +20,32 @@ public class ArquivoMp3 {
 
     private TagMp3 tag;
 
-    public ArquivoMp3(String nomeArquivo) {
+    public ArquivoMp3(String nomeArquivo) throws IOException {
         File arquivo = new File(nomeArquivo);
         try {
+            
             FileInputStream fis = new FileInputStream(arquivo);
             
+            while(fis.read() != -1) {
+                fis.read();
+            }
            
-            fis.close();
+            if(fis.read() == -1) {
+                fis.close();
+            }
+            
+            
+            
             DataInputStream dis = new DataInputStream(fis);
-        } catch (IOException e) {
-            e.printStackTrace();
+        } catch (ArquivoNaoTemTagMp3 | ArgumentoNaoEhArquivoException ex) {
+            ex.getMessage();
+            ex.printStackTrace();
+        } catch(FileNotFoundException ex) {
+            ex.getMessage();
+            ex.printStackTrace();
+        } catch(IllegalArgumentException ex) {
+            ex.getMessage();
+            ex.printStackTrace();
         }
     }
 
