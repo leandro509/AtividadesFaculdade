@@ -10,7 +10,7 @@ package lista13questa02.model;
  * @author leandro
  */
 public class ArgumentoNaoEhArquivoException extends IllegalArgumentException{
-    public ArgumentoNaoEhArquivoException(String arquivo) {
-        super("O arquivo lancado " + arquivo + " eh um diretorio!");
+    public ArgumentoNaoEhArquivoException(String mensagem) {
+        super(mensagem);
     }
 }

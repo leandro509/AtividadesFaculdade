@@ -17,6 +17,16 @@ public class TagMp3 {
     private String comentario;
     private int numeroFaixa;
     private int genero;
+    
+    public TagMp3(String titulo, String artista, String album, int ano, String comentario, int numeroFaixa, int genero) {
+        setTitulo(titulo);
+        setArtista(artista);
+        setAlbum(album);
+        setAno(ano);
+        setComentario(comentario);
+        setNumeroFaixa(numeroFaixa);
+        setGenero(genero);
+    }
 
     public String getTitulo() {
         return titulo;

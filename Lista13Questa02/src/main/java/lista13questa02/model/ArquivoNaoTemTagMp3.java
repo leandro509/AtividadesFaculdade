@@ -9,7 +9,7 @@ package lista13questa02.model;
  * @author leandro
  */
 public class ArquivoNaoTemTagMp3 extends IllegalArgumentException {
-    public ArquivoNaoTemTagMp3(String arquivo) {
-        super("O arquivo " + arquivo + " nao tem a tag .mp3");
+    public ArquivoNaoTemTagMp3(String mensagem) {
+        super(mensagem);
     }
 }
