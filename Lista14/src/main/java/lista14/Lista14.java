@@ -21,7 +21,7 @@ public class Lista14 {
         File arquivoCsv = new File("C:\\Users\\leandro\\Downloads\\L14_municipios.csv");
 
         ArrayList<Municipio> municipios = new ArrayList<>();
-
+        
         try {
             String linhasArquivo = "";
 
@@ -68,7 +68,7 @@ public class Lista14 {
         System.out.println("Ordenando pela menos populosa ");
         System.out.println(municipios.get(ultimoIndice).toString());
         
-        
+        System.out.println();
         
         
     }
